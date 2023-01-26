@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { loadProducts, productsLoaded } from "../actions"
+import { loadProductsAction, productsLoadedAction } from "../actions"
 import {useSelector} from "react-redux"
 import Loading from "./Loading"
 import { productsLoadingSelector, productsSelector } from "../selectors/products"
@@ -16,9 +16,9 @@ const ProductListPage = (props:ProductListPageProps) => {
     const products = useSelector(productsSelector)
 
     useEffect(()=>{
-        dispatch(loadProducts())
+        dispatch(loadProductsAction())
         axios.get("https://dummyjson.com/products/").then((response)=>{
-            dispatch(productsLoaded(response.data.products))
+            dispatch(productsLoadedAction(response.data.products))
         })
     },[])
 

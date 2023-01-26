@@ -13,35 +13,35 @@ export type Action<T=any> = {
 
 export type ActionCreator<T=undefined> = (...args:any) => Action<T>
 
-export const loadProducts:ActionCreator<any> = () =>{
+export const loadProductsAction:ActionCreator<any> = () =>{
     return {
         type:LOAD_PRODUCTS,
         payload:undefined,
     }
 }
 
-export const productsLoaded:ActionCreator<Product[]> = (products:Product[]) => {
+export const productsLoadedAction:ActionCreator<Product[]> = (products:Product[]) => {
     return {
         type:PRODUCTS_LOADED,
         payload:products
     }
 }
 
-export const loadOrders:ActionCreator<any> = () =>{
+export const loadOrdersAction:ActionCreator<any> = () =>{
     return {
         type:LOAD_ORDERS,
         payload:undefined,
     }
 }
 
-export const ordersLoaded:ActionCreator<Order[]> = (orders:Order[]) => {
+export const ordersLoadedAction:ActionCreator<Order[]> = (orders:Order[]) => {
     return {
         type:ORDERS_LOADED,
         payload:orders,
     }
 }
 
-export const orderDetailLoaded:ActionCreator<Order>=(order:Order)=>{
+export const orderDetailLoadedAction:ActionCreator<Order>=(order:Order)=>{
     return {
         type:ORDER_DETAIL_LOADED,
         payload:order,

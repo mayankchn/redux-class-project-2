@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom";
-import { loadOrders, ordersLoaded } from "../actions";
+import { loadOrdersAction, ordersLoadedAction } from "../actions";
 import { ordersLoadingSelector, ordersSelector } from "../selectors/orders";
 import Loading from "./Loading";
 
@@ -13,9 +13,9 @@ const OrderListPage = (props:OrderListPageProps) => {
     const loading = useSelector(ordersLoadingSelector);
     const orders = useSelector(ordersSelector);
     useEffect(()=>{
-        dispatch(loadOrders())
+        dispatch(loadOrdersAction())
         axios.get("https://dummyjson.com/carts").then((response)=>{
-            dispatch(ordersLoaded(response.data.carts))
+            dispatch(ordersLoadedAction(response.data.carts))
         })
     },[])
 
